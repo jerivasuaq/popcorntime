@@ -5,7 +5,6 @@
 FROM ubuntu
 MAINTAINER jerivas<jerivas@uaq.edu.mx>
 
-COPY Popcorn-Time-0.3.8-0-Linux-64.tar.xz /src/Popcorn-Time-0.3.8-0-Linux-64.tar.xz
 COPY popcorntime.sh config /
 
 RUN \
