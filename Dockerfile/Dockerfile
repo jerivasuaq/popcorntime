@@ -1,8 +1,12 @@
 # Base docker image
+# RUN popcorntime.sh
+
+
 FROM ubuntu
 MAINTAINER jerivas<jerivas@uaq.edu.mx>
 
 COPY Popcorn-Time-0.3.8-0-Linux-64.tar.xz /src/Popcorn-Time-0.3.8-0-Linux-64.tar.xz
+COPY popcorntime.sh config /
 
 RUN \
     dpkg --add-architecture i386 && \
@@ -39,18 +43,6 @@ RUN wget https://get.popcorntime.io/build/Popcorn-Time-0.3.8-0-Linux-64.tar.xz -
 
 RUN mkdir /opt/popcorntime/ && tar xvf /src/Popcorn-Time-0.3.8-0-Linux-64.tar.xz -C /opt/popcorntime/
 
-#RUN \
-#    echo "deb http://ppa.launchpad.net/webupd8team/popcorntime/ubuntu trusty main" | tee /etc/apt/sources.list.d/webupd8team-popcorntime.list && \
-#    echo "deb-src http://ppa.launchpad.net/webupd8team/popcorntime/ubuntu trusty main" | tee -a /etc/apt/sources.list.d/webupd8team-popcorntime.list && \
-#    apt-key adv --keyserver keyserver.ubuntu.com --recv-keys EEA14886 && \
-#    apt-get update
-
-#RUN apt-get install -y --no-install-recommends popcorn-time 
-#
-#COPY local.conf /etc/fonts/local.conf
-
-# Autorun chrome
-ENTRYPOINT [ "/opt/popcorntime/Popcorn-Time" ]
-# CMD [ "--user-data-dir=/data", "--no-sandbox" ]
+# ENTRYPOINT [ "/opt/popcorntime/Popcorn-Time" ]
 
 
