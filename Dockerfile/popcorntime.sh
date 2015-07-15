@@ -1,3 +1,5 @@
+#!/bin/bash
+
 docker run -it \
     --net host \
     --cpuset 0 \
@@ -6,8 +8,9 @@ docker run -it \
     -e DISPLAY=unix$DISPLAY \
     --device /dev/snd \
     --device /dev/dri \
-    --name popcorn \
-	jerivas/popcorn \
+    --name popcorntime \
+	jerivas/popcorntime \
     /opt/popcorntime/Popcorn-Time
 
+#    -e http_proxy=localhost:3128 \
     
