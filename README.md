@@ -1,9 +1,9 @@
 # popcorntime
 
 ```
-docker run -ti --rm jerivas/popcorntime /config > popcorntime.sh
+docker run -ti --rm --entrypoint "/bin/bash" jerivas/popcorntime /config > popcorntime.sh
 chmod +x popcorntime.sh
-dos2unix popcorntime.sh
+sed -i 's/\r//' popcorntime.sh
 ./popcorntime.sh
 ```
 
