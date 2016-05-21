@@ -50,10 +50,10 @@ RUN \
 RUN \
     apt-get install -y --no-install-recommends xz-utils
 
-RUN wget https://get.popcorntime.io/build/Popcorn-Time-0.3.8-0-Linux-64.tar.xz -P /src/
+RUN wget -O popcorn-time.tar.xz http://popcorntime.ag/download.php?file=popcorn-time-community-v0.4.0-2-l64.tar.xz 
 
-RUN mkdir /opt/popcorntime/ && tar xvf /src/Popcorn-Time-0.3.8-0-Linux-64.tar.xz -C /opt/popcorntime/
+RUN mkdir /opt/popcorntime/ && tar xvf popcorn-time.tar.xz -C /opt/popcorntime/
 
-# ENTRYPOINT [ "/opt/popcorntime/Popcorn-Time" ]
+ENTRYPOINT [ "/opt/popcorntime/Popcorn-Time" ]
 
 
