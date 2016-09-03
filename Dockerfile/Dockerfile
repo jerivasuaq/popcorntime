@@ -17,7 +17,7 @@
 FROM ubuntu
 MAINTAINER jerivas<jerivas@uaq.edu.mx>
 
-COPY popcorntime.sh config /
+COPY start.sh config /
 
 RUN \
     dpkg --add-architecture i386 && \
@@ -50,12 +50,18 @@ RUN \
 RUN \
     apt-get install -y --no-install-recommends xz-utils
 
+RUN \
+    apt-get install -y --no-install-recommends libudev-dev libudev1
+
 #RUN wget -O popcorn-time.tar.xz http://popcorntime.ag/download.php?file=popcorn-time-community-v0.4.0-2-l64.tar.xz 
 #RUN wget -O popcorn-time.tar.xz http://popcorntimece.ch/Downloads/Popcorn%20Time%20CE%20x64%20Linux.tar.xz
+#RUN wget -O popcorn-time.tar.xz https://popcorntime.sh/download/build/Popcorn-Time-0.3.9-Linux-64.tar.xz
 RUN wget -O popcorn-time.tar.xz https://popcorntime.sh/download/build/Popcorn-Time-0.3.9-Linux-64.tar.xz
 
 
 RUN mkdir /opt/popcorntime/ && tar xvf popcorn-time.tar.xz -C /opt/popcorntime/
+
+RUN ln -sf /lib/$(arch)-linux-gnu/libudev.so.1 /lib/$(arch)-linux-gnu/libudev.so.0
 
 ENTRYPOINT [ "/opt/popcorntime/linux64/Popcorn-Time" ]
 

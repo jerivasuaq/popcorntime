@@ -1,6 +1,7 @@
 #!/bin/bash
 
-docker build -t jerivas/popcorntime Dockerfile/
+cd Dockerfile
+docker build -t jerivas/popcorntime .
 
 
 
