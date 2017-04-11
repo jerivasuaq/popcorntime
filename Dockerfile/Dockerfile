@@ -56,13 +56,14 @@ RUN \
 #RUN wget -O popcorn-time.tar.xz http://popcorntime.ag/download.php?file=popcorn-time-community-v0.4.0-2-l64.tar.xz 
 #RUN wget -O popcorn-time.tar.xz http://popcorntimece.ch/Downloads/Popcorn%20Time%20CE%20x64%20Linux.tar.xz
 #RUN wget -O popcorn-time.tar.xz https://popcorntime.sh/download/build/Popcorn-Time-0.3.9-Linux-64.tar.xz
-RUN wget -O popcorn-time.tar.xz https://popcorntime.sh/download/build/Popcorn-Time-0.3.9-Linux-64.tar.xz
+#RUN wget -O popcorn-time.tar.xz https://popcorntime.sh/download/build/Popcorn-Time-0.3.9-Linux-64.tar.xz
+RUN wget -O popcorn-time.tar.xz http://mirror02.popcorntime.sh/build/Popcorn-Time-0.3.10-Linux-64.tar.xz
 
 
 RUN mkdir /opt/popcorntime/ && tar xvf popcorn-time.tar.xz -C /opt/popcorntime/
 
 RUN ln -sf /lib/$(arch)-linux-gnu/libudev.so.1 /lib/$(arch)-linux-gnu/libudev.so.0
 
-ENTRYPOINT [ "/opt/popcorntime/linux64/Popcorn-Time" ]
+ENTRYPOINT [ "/opt/popcorntime/Popcorn-Time" ]
 
 
