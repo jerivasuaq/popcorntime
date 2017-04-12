@@ -17,7 +17,6 @@
 FROM ubuntu
 MAINTAINER jerivas<jerivas@uaq.edu.mx>
 
-COPY start.sh config /
 
 RUN \
     dpkg --add-architecture i386 && \
@@ -63,6 +62,8 @@ RUN wget -O popcorn-time.tar.xz http://mirror02.popcorntime.sh/build/Popcorn-Tim
 RUN mkdir /opt/popcorntime/ && tar xvf popcorn-time.tar.xz -C /opt/popcorntime/
 
 RUN ln -sf /lib/$(arch)-linux-gnu/libudev.so.1 /lib/$(arch)-linux-gnu/libudev.so.0
+
+COPY start.sh start-withNvidia.sh config.sh config-withNvidia.sh  /
 
 ENTRYPOINT [ "/opt/popcorntime/Popcorn-Time" ]
 

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# https://hub.docker.com/r/jerivas/popcorntime/
+
 if [ $# -gt 0 ]; then
     ENTRYPOINT="--entrypoint $@"
 fi
