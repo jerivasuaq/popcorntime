@@ -12,6 +12,7 @@ cd popcorntime
 ./build.sh
 
 docker run -ti --rm --entrypoint "/bin/bash" jerivas/popcorntime /config > popcorntime.sh
+sed -i 's/\r//' popcorntime.sh
 chmod +x popcorntime.sh
 ./popcorntime.sh
 ```
@@ -32,6 +33,7 @@ cd popcorntime
 ./build-withNvidia.sh
 
 docker run -ti --rm --entrypoint "/bin/bash" jerivas/popcorntime /config-withNvidia > popcorntime-withNvidia.sh
+sed -i 's/\r//' popcorntime-withNvidia.sh
 chmod +x popcorntime-withNvidia.sh
 ./popcorntime-withNvidia.sh
 `
