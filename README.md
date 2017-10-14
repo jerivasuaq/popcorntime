@@ -11,7 +11,7 @@ cd popcorntime
 
 ./build.sh
 
-docker run -ti --rm --entrypoint "/bin/bash" jerivas/popcorntime /config > popcorntime.sh
+docker run -ti --rm --entrypoint "/bin/bash" jerivas/popcorntime /config.sh > popcorntime.sh
 
 sed -i 's/\r//' popcorntime.sh
 
