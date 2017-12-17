@@ -22,7 +22,8 @@ RUN \
     dpkg --add-architecture i386 && \
     apt-get update && \
     apt-get install -y \
-    libgtk2.0-0:i386 libnss3 libgconf-2-4 libasound2-plugins-extra libnotify4 
+    libgtk2.0-0:i386 libnss3 libgconf-2-4 libasound2-plugins-extra libnotify4 \
+	alsa-base alsa-utils pulseaudio
 
 RUN \
     apt-get install -y --no-install-recommends \
@@ -56,6 +57,7 @@ RUN \
 #RUN wget -O popcorn-time.tar.xz http://popcorntimece.ch/Downloads/Popcorn%20Time%20CE%20x64%20Linux.tar.xz
 #RUN wget -O popcorn-time.tar.xz https://popcorntime.sh/download/build/Popcorn-Time-0.3.9-Linux-64.tar.xz
 #RUN wget -O popcorn-time.tar.xz https://popcorntime.sh/download/build/Popcorn-Time-0.3.9-Linux-64.tar.xz
+#RUN wget -O popcorn-time.tar.xz http://mirror02.popcorntime.sh/build/Popcorn-Time-0.3.10-Linux-64.tar.xz
 #RUN wget -O popcorn-time.tar.xz http://mirror02.popcorntime.sh/build/Popcorn-Time-0.3.10-Linux-64.tar.xz
 RUN wget -O popcorn-time.tar.xz http://mirror02.popcorntime.sh/build/Popcorn-Time-0.3.10-Linux-64.tar.xz
 
