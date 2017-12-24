@@ -14,7 +14,7 @@
 # RUN popcorntime.sh
 
 
-FROM ubuntu
+FROM debian:stretch-slim
 MAINTAINER jerivas<jerivas@uaq.edu.mx>
 
 
@@ -22,8 +22,8 @@ RUN \
     dpkg --add-architecture i386 && \
     apt-get update && \
     apt-get install -y \
-    libgtk2.0-0:i386 libnss3 libgconf-2-4 libasound2-plugins-extra libnotify4 \
-	alsa-base alsa-utils pulseaudio
+    libgtk2.0-0:i386 libnss3 libgconf-2-4 libasound2-plugins libnotify4 \
+	alsa-tools alsa-utils pulseaudio
 
 RUN \
     apt-get install -y --no-install-recommends \
@@ -65,6 +65,9 @@ RUN wget -O popcorn-time.tar.xz http://mirror02.popcorntime.sh/build/Popcorn-Tim
 RUN mkdir /opt/popcorntime/ && tar xvf popcorn-time.tar.xz -C /opt/popcorntime/
 
 RUN ln -sf /lib/$(arch)-linux-gnu/libudev.so.1 /lib/$(arch)-linux-gnu/libudev.so.0
+
+# Remove temporary files
+RUN rm -rf /var/lib/apt/lists/*
 
 COPY start.sh start-withNvidia.sh config.sh config-withNvidia.sh  /
 
